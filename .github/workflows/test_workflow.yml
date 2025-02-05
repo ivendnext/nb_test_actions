@@ -1,0 +1,22 @@
+name: Test Self-Hosted Runner System Info
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  check-system-info:
+    runs-on: self-hosted  # This uses your self-hosted runner
+    steps:     
+      - name: Self hosted runner testing
+        run:
+          echo "I am on ubuntu self-hosted runner:" `hostname`
+      - name: Get System Information
+        run: |
+          echo "Checking system information"
+          uname -a
+          id          
+          echo "Environment Variables"
+          env
