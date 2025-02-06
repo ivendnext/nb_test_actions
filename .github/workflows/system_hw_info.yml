@@ -1,0 +1,61 @@
+name: Print Ubuntu dev site System Info
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  print-system-info:
+    runs-on: self-hosted  # Run the job on an Ubuntu self-hosted runner
+
+    steps:
+      # Step 1: Checkout the code (optional, but common for most workflows)
+      - name: Checkout code
+        #Not required in this case
+
+      # Step 2: Print OS information
+      - name: Print OS Info
+        run: |
+          echo "######## OS Information ########"
+          uname -a  # Prints system information (kernel version, architecture, etc.)
+          cat /etc/os-release  # Prints details about the OS (Ubuntu version, etc.)
+
+      # Step 3: Print CPU (Processor) Information
+      - name: Print CPU Info
+        run: |
+          echo "######## CPU Information ########"
+          lscpu  # Displays CPU architecture information
+
+      # Step 4: Print Memory Information
+      - name: Print Memory Info
+        run: |
+          echo "######## Memory Information ########"
+          free -h  # Displays memory usage (human-readable format)
+
+      # Step 5: Print Disk Space Information
+      - name: Print Disk Space Info
+        run: |
+          echo "######## Disk Space Information ########"
+          df -h  # Displays disk space usage (human-readable format)
+
+      # Step 6: Print Network Interfaces Information
+      - name: Print Network Info
+        run: |
+          echo ""######## Network Information ########"
+          ifconfig  # Displays network interface configuration
+
+      # Step 7: Print hardware information
+      - name: Print Hardware Info
+        run: |
+          echo ""######## Hardware Information "########"
+          lshw -short  # Displays a brief overview of hardware (requires root privileges)
+
+      # Optional: Step 8 - Run any other system information command you need
+      - name: Print Kernel Version
+        run: |
+          echo ""######## Kernel Version "########"
+          uname -r  # Prints the kernel version
