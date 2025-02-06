@@ -14,7 +14,7 @@ jobs:
 
     steps:
       # Step 1: Checkout the code (optional, but common for most workflows)
-      - name: Checkout code
+      #- name: Checkout code
         #Not required in this case
 
       # Step 2: Print OS information
