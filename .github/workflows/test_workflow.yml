@@ -12,6 +12,7 @@ jobs:
     steps:     
       - name: Self hosted runner testing
         run:
+          echo "Testing jenkins hook integration ... "
           echo "I am on ubuntu self-hosted runner:" `hostname`
       - name: Get System Information
         run: |
